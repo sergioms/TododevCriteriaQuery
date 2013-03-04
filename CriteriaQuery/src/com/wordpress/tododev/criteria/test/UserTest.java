@@ -74,7 +74,7 @@ public class UserTest {
 			final Metamodel m = em.getMetamodel();
 			final Root<User> user = q.from(m.entity(User.class));
 			final Predicate condition = cb.equal(user.get(User_.privilegeLevel), 5);
-			q.select(user).where(condition).orderBy(cb.asc(user.get("userId")));
+			q.select(user).where(condition).orderBy(cb.asc(user.get(User_.userId)));
 				
 			em.getTransaction().begin();
 			List<User> result = em.createQuery(q).getResultList();
